@@ -59,6 +59,11 @@ header.top{display:flex;justify-content:space-between;align-items:center;padding
 .grp{margin-top:44px;font-size:1.1rem;color:var(--muted);font-weight:600}
 .grp+.tiers{margin-top:16px}
 .per{font-family:"Instrument Sans",system-ui,sans-serif;font-size:1rem;font-weight:500;color:var(--muted)}
+.form{max-width:520px;margin:0 auto;text-align:left;display:grid;gap:14px}
+.form label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+.form input,.form select,.form textarea{font:inherit;font-weight:400;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);width:100%}
+.form .btn{cursor:pointer;font:600 1rem "Instrument Sans",system-ui,sans-serif;justify-self:start}
+.hp{display:none}
 .tag{background:var(--accent);color:var(--accent-ink);font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:99px;width:fit-content;margin-bottom:10px}
 .price{font-family:"Bricolage Grotesque",sans-serif;font-size:2.6rem;font-weight:800;margin:8px 0 2px}
 .tier .for{color:var(--muted);font-size:.95rem;margin-bottom:16px}
@@ -99,7 +104,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 <h1>When customers ask AI who to call, be the answer.</h1>
 <p class="lede">ChatGPT, Google and Siri now recommend local businesses. We fix the listings and website data that decide whether yours is named or skipped.</p>
 <div class="cta-row">
-<a class="btn" href="mailto:hello@fynvira.co.uk?subject=Free%20AI%20visibility%20snapshot">Get my free snapshot</a>
+<a class="btn" href="#contact" data-pkg="Free snapshot">Get my free snapshot</a>
 <a class="btn ghost" href="#packages">See packages and prices</a>
 </div>
 </div>
@@ -140,7 +145,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 <li>Prioritised fix list</li>
 <li>30-minute walkthrough call</li>
 </ul>
-<a class="btn ghost" href="mailto:hello@fynvira.co.uk?subject=AI%20Visibility%20Scorecard">Get the Scorecard</a>
+<a class="btn ghost" href="#contact" data-pkg="AI Visibility Scorecard">Get the Scorecard</a>
 </div>
 <div class="tier pick">
 <span class="tag">Most popular</span>
@@ -155,7 +160,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 <li>Bing Places and Apple Business Connect</li>
 <li>Validation testing and a before-and-after report</li>
 </ul>
-<a class="btn" href="mailto:hello@fynvira.co.uk?subject=Foundation%20Sprint">Book the Sprint</a>
+<a class="btn" href="#contact" data-pkg="Foundation Sprint">Book the Sprint</a>
 </div>
 </div>
 <h3 class="grp">Monthly plans</h3>
@@ -170,7 +175,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 <li>Listing and structured-data upkeep</li>
 <li>Monthly recommendations you can act on</li>
 </ul>
-<a class="btn ghost" href="mailto:hello@fynvira.co.uk?subject=Visibility%20Partner">Choose Visibility Partner</a>
+<a class="btn ghost" href="#contact" data-pkg="Visibility Partner">Choose Visibility Partner</a>
 </div>
 <div class="tier">
 <h3>Growth Partner</h3>
@@ -183,7 +188,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 <li>New directory and citation building</li>
 <li>Quarterly strategy call</li>
 </ul>
-<a class="btn ghost" href="mailto:hello@fynvira.co.uk?subject=Growth%20Partner">Choose Growth Partner</a>
+<a class="btn ghost" href="#contact" data-pkg="Growth Partner">Choose Growth Partner</a>
 </div>
 </div>
 <p class="note">Monthly plans can be cancelled at any time after the first 3 months.</p>
@@ -221,10 +226,22 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
 </div>
 </section>
 
-<section class="final">
+<section class="final" id="contact">
 <h2>See where you stand today</h2>
-<p class="lede">Get a free snapshot showing how AI tools describe your business and who they recommend instead.</p>
-<a class="btn" href="mailto:hello@fynvira.co.uk?subject=Free%20AI%20visibility%20snapshot">Get my free snapshot</a>
+<p class="lede">Tell us a little about your business and we’ll send your free AI visibility snapshot. Or email <a href="mailto:hello@fynvira.co.uk">hello@fynvira.co.uk</a>.</p>
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+<input type="hidden" name="subject" value="New Fynvira enquiry">
+<input type="hidden" name="from_name" value="Fynvira website">
+<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Email<input type="email" name="email" required autocomplete="email"></label>
+<label>Business website<input name="website" placeholder="www.example.co.uk" autocomplete="url"></label>
+<label>Interested in<select name="package" id="pkg"><option>Free snapshot</option><option>AI Visibility Scorecard</option><option>Foundation Sprint</option><option>Visibility Partner</option><option>Growth Partner</option></select></label>
+<label>Anything we should know? (optional)<textarea name="message" rows="3"></textarea></label>
+<button class="btn" type="submit">Send my enquiry</button>
+<p class="note">We’ll only use your details to reply to your enquiry.</p>
+</form>
 </section>
 
 <footer>© Fynvira · hello@fynvira.co.uk</footer>
@@ -248,6 +265,8 @@ b1.setAttribute('aria-pressed',on?'false':'true');b2.setAttribute('aria-pressed'
 b1.addEventListener('click',function(){show(before,false)});
 b2.addEventListener('click',function(){show(after,true)});
 ans.innerHTML=before;
+var sel=document.getElementById('pkg');
+document.querySelectorAll('[data-pkg]').forEach(function(a){a.addEventListener('click',function(){if(sel)sel.value=a.getAttribute('data-pkg')})});
 })();
 </script>
 </body>
